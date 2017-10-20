@@ -1,0 +1,4 @@
+---
+deploy:
+    install: false
+    target: /var/www
