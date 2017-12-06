@@ -1,4 +1,3 @@
 ---
 deploy:
-    install: false
-    target: /var/www
+     - { src: ./, dest: /var/www/test.dev, archive: yes, delete: yes, owner: "{{ ansible_user }}", group: "{{ ansible_user }}", rsync_opts: [] }

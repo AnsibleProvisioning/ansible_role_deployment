@@ -1,3 +1,5 @@
 ---
-- include: install.yml
-  when: "{{ deploy.install == true }}"
+- include_tasks: deploy.yml
+  with_items: "{{ deploy }}"
+  loop_control:
+      loop_var: target

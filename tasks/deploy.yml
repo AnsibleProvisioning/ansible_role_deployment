@@ -1,0 +1,17 @@
+---
+- name: Deploy | Transfer Code
+  become: false
+  synchronize:
+      src: "{{ target.src }}"
+      dest: "{{ target.dest }}"
+      archive: "{{ target.archive }}"
+      delete: "{{ target.delete }}"
+      rsync_path: "sudo rsync"
+      rsync_opts: "{{ target.rsync_opts }}"
+
+- name: Deploy | Set permissions
+  file:
+      path: "{{ target.dest }}"
+      recurse: yes
+      owner: "{{ target.owner }}"
+      group: "{{ target.group }}"
